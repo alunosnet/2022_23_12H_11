@@ -1,0 +1,15 @@
+C:\Users\João Costa\Desktop\coding\12h\Mod15\Mod15_Projeto\Mod15_Projeto\Mod15_Projeto\bin\Debug\Mod15_Projeto.exe.config
+C:\Users\João Costa\Desktop\coding\12h\Mod15\Mod15_Projeto\Mod15_Projeto\Mod15_Projeto\bin\Debug\Mod15_Projeto.exe
+C:\Users\João Costa\Desktop\coding\12h\Mod15\Mod15_Projeto\Mod15_Projeto\Mod15_Projeto\bin\Debug\Mod15_Projeto.pdb
+C:\Users\João Costa\Desktop\coding\12h\Mod15\Mod15_Projeto\Mod15_Projeto\Mod15_Projeto\obj\Debug\Mod15_Projeto.csproj.AssemblyReference.cache
+C:\Users\João Costa\Desktop\coding\12h\Mod15\Mod15_Projeto\Mod15_Projeto\Mod15_Projeto\obj\Debug\Mod15_Projeto.csproj.SuggestedBindingRedirects.cache
+C:\Users\João Costa\Desktop\coding\12h\Mod15\Mod15_Projeto\Mod15_Projeto\Mod15_Projeto\obj\Debug\Mod15_Projeto.Form1.resources
+C:\Users\João Costa\Desktop\coding\12h\Mod15\Mod15_Projeto\Mod15_Projeto\Mod15_Projeto\obj\Debug\Mod15_Projeto.Properties.Resources.resources
+C:\Users\João Costa\Desktop\coding\12h\Mod15\Mod15_Projeto\Mod15_Projeto\Mod15_Projeto\obj\Debug\Mod15_Projeto.csproj.GenerateResource.cache
+C:\Users\João Costa\Desktop\coding\12h\Mod15\Mod15_Projeto\Mod15_Projeto\Mod15_Projeto\obj\Debug\Mod15_Projeto.csproj.CoreCompileInputs.cache
+C:\Users\João Costa\Desktop\coding\12h\Mod15\Mod15_Projeto\Mod15_Projeto\Mod15_Projeto\obj\Debug\Mod15_Projeto.exe
+C:\Users\João Costa\Desktop\coding\12h\Mod15\Mod15_Projeto\Mod15_Projeto\Mod15_Projeto\obj\Debug\Mod15_Projeto.pdb
+C:\Users\João Costa\Desktop\coding\12h\Mod15\Mod15_Projeto\Mod15_Projeto\Mod15_Projeto\obj\Debug\Mod15_Projeto.Computadores.F_Comp.resources
+C:\Users\João Costa\Desktop\coding\12h\Mod15\Mod15_Projeto\Mod15_Projeto\Mod15_Projeto\obj\Debug\Mod15_Projeto.Clientes.F_Cliente.resources
+C:\Users\João Costa\Desktop\coding\12h\Mod15\Mod15_Projeto\Mod15_Projeto\Mod15_Projeto\obj\Debug\Mod15_Projeto.Vendas.F_Venda.resources
+C:\Users\João Costa\Desktop\coding\12h\Mod15\Mod15_Projeto\Mod15_Projeto\Mod15_Projeto\obj\Debug\Mod15_Projeto.Reparacoes.F_Reparacao.resources
