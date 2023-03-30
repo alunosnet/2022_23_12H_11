@@ -1,0 +1,44 @@
+﻿@model MOD_17E_PROJETO.Models.Cliente
+
+@{
+    ViewBag.Title = "Detalhes";
+}
+
+<br/><h2>Detalhes</h2>
+
+     <div>
+         <h4>Cliente</h4>
+         <hr />
+         <div class="row">
+             <div class="col-md-8">
+                 <dl class="dl-horizontal">
+                     <dt>@Html.DisplayNameFor(model => model.Nome)</dt>
+                     <dd>@Html.DisplayFor(model => model.Nome)</dd>
+                     <dt>@Html.DisplayNameFor(model => model.Morada)</dt>
+                     <dd>@Html.DisplayFor(model => model.Morada)</dd>
+                     <dt>@Html.DisplayNameFor(model => model.CP)</dt>
+                     <dd>@Html.DisplayFor(model => model.CP)</dd>
+                     <dt>@Html.DisplayNameFor(model => model.Email)</dt>
+                     <dd>@Html.DisplayFor(model => model.Email)</dd>
+                     <dt>@Html.DisplayNameFor(model => model.Telefone)</dt>
+                     <dd>@Html.DisplayFor(model => model.Telefone)</dd>
+                     <dt>@Html.DisplayNameFor(model => model.DataNascimento)</dt>
+                     <dd>@Html.DisplayFor(model => model.DataNascimento)</dd>
+                 </dl>
+             </div>
+             <div class="col-md-4">
+                 @{
+                     string nome = Server.MapPath("~/Public2/" + Model.ClienteID + ".jpg");
+                     if (System.IO.File.Exists(nome))
+                     {
+                         <img src="@Url.Content(String.Format("~/Public2/{0}.jpg",Model.ClienteID))" width="150" />
+                     }
+                 }
+             </div>
+         </div>
+
+     </div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.ClienteID }) |
+    @Html.ActionLink("Voltar", "Index")
+</p>

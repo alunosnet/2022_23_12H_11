@@ -1,0 +1,120 @@
+﻿@model MOD_17E_PROJETO.Models.Servico
+
+@{
+    ViewBag.Title = "Detalhes";
+}
+<br/>
+<h2>Detalhes</h2>
+
+<div>
+    <h4>Servico</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.cliente.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cliente.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tecnico.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tecnico.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descricao)
+        </dd>
+        @if (Model.Estado == 0)
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.data_criado)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.data_criado)
+            </dd>
+        }
+        else if (Model.Estado == 1)
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.data_criado)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.data_criado)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.data_começou)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.data_começou)
+            </dd>
+        }
+        else if (Model.Estado == 2)
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.data_criado)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.data_criado)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.data_começou)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.data_começou)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.data_Acabou)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.data_Acabou)
+            </dd>
+        }
+        <dt>
+            @Html.DisplayNameFor(model => model.valor_pago)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.valor_pago)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+
+        <dd>
+            @if (Model.Estado == 0)
+            {
+                <span>Disponivel</span>
+            }
+            else if (Model.Estado == 1)
+            {
+                <span>Começou</span>
+            }
+            else if (Model.Estado == 2)
+            {
+                <span>Terminou</span>
+            }
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.IdServico }) |
+    @Html.ActionLink("Voltar", "Index")
+</p>

@@ -1,0 +1,61 @@
+﻿@model IEnumerable<MOD_17E_PROJETO.Models.Servico>
+    @{
+        ViewBag.Title = "Lista Serviços";
+    }
+    <br />
+    <h2>Lista Serviços</h2>
+
+    <p>
+        @Html.ActionLink("Voltar", "Index")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.cliente.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.descricao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estado)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cliente.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.descricao)
+                </td>
+                <td>
+                    @if (item.Estado == 0)
+                    {
+                        <span>Disponivel</span>
+                    }
+                    else if (item.Estado == 1)
+                    {
+                        <span>Começou</span>
+                    }
+                    else if (item.Estado == 2)
+                    {
+                        <span>Terminou</span>
+                    }
+                </td>
+                <td>
+                    @if (User.IsInRole("Administrador")&& item.Estado == 1)
+                    {
+                        @Html.ActionLink("Finalizar", "FinalizarServico",  new { id = item.IdServico })
+                    }
+                    else if (User.IsInRole("Técnico") && item.Estado == 0)
+                    {
+                        @Html.ActionLink("Aceitar", "AceitarServico",  new { id = item.IdServico })
+                    }
+                </td>
+            </tr>
+        }
+
+    </table>

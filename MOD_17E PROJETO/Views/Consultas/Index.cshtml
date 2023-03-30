@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+<h2>Consultas</h2>
+
+@if (Request.IsAuthenticated)
+{@Html.ActionLink("Numero de serviços do Técnico", "Index") <span>|</span>
+@Html.ActionLink("Numero de serviços terminados por técnico", "Index")}
+
+

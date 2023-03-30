@@ -1,0 +1,20 @@
+Index Serviços
+
+data começou e acabou esconder so mostrar ao tecnico
+
+valor_pago é quanto ele quer dar 
+estado de serviço - 0 mostrar que está disponivel
+
+Create Serviços
+
+nao dar add data de entrada pq é o dia de hoje
+
+data começo e acabou retirar pq e so para o admin ver
+
+valor pago mudar nome para dinheiro que oferece
+
+Estado tirar de aparecer pq vai ser igual a 0 ou seja disponivel 
+
+cliente tirar o cliente id pq o id será dado automaticamente por quem deu o login
+
+tirar o id tecnico pq só será dado dps pelo tecnico que confirma

@@ -1,0 +1,92 @@
+﻿@model IEnumerable<MOD_17E_PROJETO.Models.Servico>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<br/>
+<h2>Index</h2>
+
+<p>
+    @if (Request.IsAuthenticated && User.IsInRole("Administrador"))
+    {@Html.ActionLink("Criar Novo", "Create") <span>|</span>} 
+    @Html.ActionLink("Lista de Serviços", "ListaServicos")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.cliente.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tecnico.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.data_criado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.valor_pago)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Estado)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.cliente.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tecnico.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.descricao)
+        </td>
+        <td>
+            @if (item.Estado == 0)
+            {
+                @Html.DisplayFor(modelItem => item.data_criado)
+            }
+            else if (item.Estado == 1)
+            {
+                @Html.DisplayFor(modelItem => item.data_começou)
+            }
+            else if (item.Estado == 2)
+            {
+                @Html.DisplayFor(modelItem => item.data_Acabou)
+            }
+
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.valor_pago)
+        </td>
+        <td>
+            @if (item.Estado == 0)
+            {
+                <span>Disponivel</span>
+            }
+            else if (item.Estado == 1)
+            {
+                <span>Começou</span>
+            }
+            else if(item.Estado==2)
+            {
+                <span>Terminou</span>
+            }
+        </td>
+        <td>
+            @if (Request.IsAuthenticated && User.IsInRole("Administrador"))
+            {
+                @Html.ActionLink("Editar", "Edit", new { id = item.IdServico }) <span>|</span>
+                @Html.ActionLink("Detalhes", "Details", new { id = item.IdServico }) <span>|</span>
+                @Html.ActionLink("Apagar", "Delete", new { id = item.IdServico })
+            }
+        </td>
+    </tr>
+}
+
+</table>

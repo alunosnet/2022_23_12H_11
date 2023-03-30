@@ -1,0 +1,51 @@
+﻿@model MOD_17E_PROJETO.Models.Tecnico
+
+@{
+    ViewBag.Title = "Apagar";
+}
+
+<h2>Apagar</h2>
+
+<h3>Queres mesmo apagar o Técnico?</h3>
+<div>
+    <h4>Tecnico</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        @if (Request.IsAuthenticated && User.IsInRole("Administrador"))
+        {
+            <dt>@Html.DisplayNameFor(model => model.Perfil)</dt>
+
+            <dd>
+                @if (Model.Perfil == 1)
+                {<span>Técnico</span>}
+                else if (Model.Perfil == 0)
+                {<span>Administrado</span>}
+            </dd>
+        }
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            @Html.ActionLink("Voltar", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,50 @@
+﻿@model MOD_17E_PROJETO.Models.Tecnico
+
+@{
+    ViewBag.Title = "Detalhes";
+}
+
+<br />
+<h2>Detalhes</h2>
+
+<div>
+    <h4>Tecnico</h4>
+    <hr />
+    <div class=" row">
+        <div class="col-md-8">
+            <dl class="dl-horizontal">
+                <dt>@Html.DisplayNameFor(model => model.Nome)</dt>
+                <dd>@Html.DisplayFor(model => model.Nome)</dd>
+                <dt>@Html.DisplayNameFor(model => model.Email)</dt>
+                <dd>@Html.DisplayFor(model => model.Email)</dd>
+                @if (Request.IsAuthenticated && User.IsInRole("Administrador"))
+                {
+
+                    <dt>@Html.DisplayNameFor(model => model.Perfil)</dt>
+
+                    <dd>
+                        @if (Model.Perfil == 1)
+                        {<span>Técnico</span>}
+                        else if(Model.Perfil == 0)
+                        {<span>Administrado</span>}
+                    </dd>
+
+                }
+            </dl>
+        </div>
+
+        <div class="col-md-4">
+            @{
+                string nome = Server.MapPath("~/Public2/" + Model.IdTecnico + ".jpg");
+                if (System.IO.File.Exists(nome))
+                {
+                    <img src="@Url.Content(String.Format("~/Public2/{0}.jpg",Model.IdTecnico))" width="150" />
+                }
+            }
+        </div>
+    </div>
+</div>
+    <p>
+        @Html.ActionLink("Editar", "Edit", new { id = Model.IdTecnico }) |
+        @Html.ActionLink("Voltar", "Index")
+    </p>

@@ -1,0 +1,52 @@
+﻿@model IEnumerable<MOD_17E_PROJETO.Models.Tecnico>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<br/><h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Criar", "Create")
+</p>
+<form method="post">
+    Nome Técnico:<input type="text" name="tbPesquisa" class="form-control" />
+    <input type="submit" value="Pesquisar" class="btn btn-primary" />
+    @Html.ActionLink("Recarregar", "Index")
+</form>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Perfil)
+        </th>
+       
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Perfil)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.IdTecnico }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.IdTecnico }) |
+            @Html.ActionLink("Apagar", "Delete", new { id=item.IdTecnico })
+        </td>
+    </tr>
+}
+
+</table>
