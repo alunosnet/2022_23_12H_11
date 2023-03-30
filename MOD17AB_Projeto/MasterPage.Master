@@ -1,0 +1,136 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="MOD17AB_Projeto.MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <link href="/CSS-JS-Imagens/css/bootstrap.css" rel="stylesheet" />
+    <script src="/CSS-JS-Imagens/js/bootstrap.bundle.js"></script>
+    <link href="/CSS-JS-Imagens/css/css.css" rel="stylesheet" />
+    <script src="/CSS-JS-Imagens/js/codigo.js"></script>
+    <title>Ervas Do Fabio</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="container">
+            <!--Menu-->
+            <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" style="z-index: 2">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="/index.aspx">Ervas do Fábio</a>
+                    <!--menu hamburguer-->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <!--menu hamburguer-->
+                    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <!--Menu do admin-->
+                            <% if (Session["perfil"] != null && Session["perfil"].Equals("2"))
+                                {%>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Admin/Admin.aspx">Área Admin</a> <!--Ver produtos e numero de utilizadores-->
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Admin/AMaterial/AMaterial.aspx">Material</a><!--Gerir e adicionar Materiais-->
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Admin/AUtilizadores/AUtilizadores.aspx">Utilizadores</a><!--Criar e adicionar bloquear e ver historico de utilizadores-->
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Admin/AMarcacoes/AMarcacoes.aspx">Reservar</a><!--consultar vendas-->
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Admin/AConsultas/AConsultas.aspx">Consultas</a><!--consultas de materiais e vendas e marcaçoes-->
+                            </li>
+                            <%}%>
+                            <!--Menu do Jardineiro-->
+                            <% if (Session["perfil"] != null && Session["perfil"].Equals("1"))
+                               {%>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Jardineiros/Jardineiro.aspx">Perfil</a> <!--Perfil do Jardineiro-->
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Jardineiros/Marcacoes/Marcacoes.aspx">Serviços</a> <!--Aceitar trabalho-->
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Jardineiros/Marcacoes/JHistoricoMarcacoes.aspx">Historico Serviços</a> <!--historico de trabalho aceite-->
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Jardineiros/JProdutos/Produtos.aspx">Produtos</a> <!--Produtos para compra-->
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Jardineiros/JProdutos/Historico.aspx">Histórico</a> <!--Historico de compra-->
+                            </li>
+                           
+
+                            <%}%>
+                            <!--Menu Utilizador-->
+                            <% if (Session["perfil"] != null && Session["perfil"].Equals("0"))
+                               {%>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Users/User.aspx">Perfil</a> <!--Perfil do User-->
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Users/Produtos/Historico.aspx">Histórico de Compras</a> <!--historico de compras-->
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Users/Produtos/Produtos.aspx">Materiais</a> <!--materiais para compra dele-->
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Users/Anuncios/Anuncio.aspx">Anuncio</a> <!--criar anuncio-->
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Users/Anuncios/HistoricoAnunciosCriados.aspx">Histórico de Anuncios</a> <!-- historico de anuncios cirados-->
+                            </li>
+                            <%}%>
+
+                            <!--Menu da homepage-->
+                            <% if (Request.Url.LocalPath.ToLower().EndsWith("index.aspx"))
+                                {%>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Ordenação</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="index.aspx?ordena=1">Por Preço</a></li>
+                                    <li><a class="dropdown-item" href="index.aspx?ordena=2">Por Autor</a></li>
+                                </ul>
+                            </li>
+                            <%}%>
+                        </ul>
+                        <!--Menu login/logout-->
+                        <ul class="navbar-nav">
+                            <% if (Session["perfil"] == null)
+                                {%>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Registo.aspx">Registar</a>
+                            </li>
+                            <%}
+                            else
+                            {%>
+                            <li class="nav-item">
+                                 <a class="nav-link" href="/logout.aspx">Terminar Sessão</a>
+                            </li>
+                            <%}%>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!--Menu-->
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+            <!--Aviso dos cookies-->
+            <div runat="server" id="div_aviso">
+                <footer class="footer">
+                    <div class="container">
+                        Este site utiliza cookies.
+                    <asp:Button runat="server" ID="btaceitar" OnClick="btaceitar_Click"
+                        CssClass="btn btn-outline-primary float-right"
+                        Text="Aceitar" />
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
